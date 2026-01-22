@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% block extra_css2 %}
+{% endblock %}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    <aside class="sidebar">
+        <div class="toc">
+            <span id="the-language-of-rotations" class="span-li "><a href="{% url 'course_2x2_def_1' %}">The language of rotations</a></span>
+            <span id="the-first-side" class="span-li "><a href="{% url 'course_2x2_def_2' %}">The first side</a></span>
+            <span id="setting-the-corners-of-the-second-layer" class="span-li "><a href="{% url 'course_2x2_def_3' %}">Setting the corners of the second layer</a></span>
+            <span id="rotate-the-corners-of-the-second-layer" class="span-li "><a href="{% url 'course_2x2_def_4' %}">Rotate the corners of the second layer</a></span>
+            <span id="" class="span-li "><a href="">The cube is assembled!</a></span>
+        </div>
+    </aside>
+    <div class="cont">
+        {% block container %}
+        {% endblock %}
+    </div>
+    
+</div>
+{% endblock %}

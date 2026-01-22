@@ -20,35 +20,43 @@
 
 .cubes-row-wrapper {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
     padding-top: 13px;
     padding-bottom: 15px;
 }
 
 .cubes-row {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    gap: 60px; /* как у вас было */
     width: 1180px;
     height: 436px;
-    gap: 60px;
+    flex-wrap: wrap; /* на случай маленьких экранов */
 }
 
+/* --- Стили карточки --- */
 .cube-card {
     width: 250px;
-    height: 320px;
-    background: rgba(255, 238, 238, 0.5);
+    height: 320px; /* исходная высота */
+    background: rgba(255, 238, 238, 0.18);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden; /* скрываем всё, что выходит за границы */
+    cursor: pointer;
+    transition: height 0.3s ease;
+    position: relative;
+}
+
+.cube-card:hover {
+    height: 420px; /* увеличенная высота — подберите под свои кнопки */
 }
 
 .cube-image {
     width: 250px;
     height: 250px;
-    object-fit: cover; /* гарантирует правильное масштабирование */
+    object-fit: cover;
 }
 
 .cube-label {
@@ -64,4 +72,37 @@
     font-size: 36px;
     text-align: center;
     margin: 0;
+}
+
+/* --- Кнопки (изначально скрыты) --- */
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.cube-card:hover .card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Стили кнопок */
+.card-actions span {
+    padding: 10px 20px;
+    background-color: rgba(255, 250, 250, 0.5);
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.card-actions span:hover {
+    background-color: rgba(255, 250, 250, 0.2);
 }

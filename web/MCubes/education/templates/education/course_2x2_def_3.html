@@ -1,0 +1,95 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/course_2x2_def_3.css' %}">
+{% endblock %}
+
+{% block container %}
+<!-- <div style="display: flex; flex-direction: column; align-items: center; width: 100%;height: 100%;gap: 20px;">
+    <p style="text-align: center; display: flex; justify-content: center; align-items: center; color: rgb(255,255,255);font-family: Inter, sans-serif;font-size: 36px;line-height: 36px;margin-bottom: 0;">Setting the corners of the second layer</p><span style="width: 634px;font-family: Inter, sans-serif;color: rgb(255,255,255);border-color: transparent;margin-bottom: 0;">At this stage, you need to place the corners of the second layer correctly. So that the colors on each of the upper elements, except for yellow, match the colors of the elements below them.</span><span style="width: 634px;font-family: Inter, sans-serif;color: rgb(255,255,255);border-color: transparent;margin-bottom: 0;">To do this, you need to find the yellow-red-green corner and put it in the right place.: above the other corner on the first layer with red and green color. It can be deployed in different ways, the main thing is that it stands in the right place.</span>
+    <div  style="display: flex; flex-direction: row; width: fit-content;gap: 15px;">
+        <div  style="display: flex; flex-direction: column; justify-content: end; align-items: center; width: 300px;height: 300px;background: rgba(112,49,49,0.8);border-radius: 15px;">
+            <div style="width: 180px;height: 180px;background: #ff0000;border-radius: 15px;"></div><span  style="display: flex; align-items: end; border-radius: 15px;border-color: rgb(0,0,0);"><br />R - turn the right side clockwise<br /><br /></span>
+        </div>
+        <div  style="display: flex; flex-direction: column; justify-content: end; align-items: center; width: 300px;height: 300px;background: rgba(112,49,49,0.8);border-radius: 15px;">
+            <div style="width: 180px;height: 180px;background: #ff0000;border-radius: 15px;"></div><span  style="display: flex; align-items: end; border-radius: 15px;border-color: rgb(0,0,0);"><br />R - turn the right side clockwise<br /><br /></span>
+        </div>
+        <div  style="display: flex; flex-direction: column; justify-content: end; align-items: center; width: 300px;height: 300px;background: rgba(112,49,49,0.8);border-radius: 15px;">
+            <div style="width: 180px;height: 180px;background: #ff0000;"></div><span  style="display: flex; align-items: end; border-color: rgb(0,0,0);"><br />R - turn the right side clockwise<br /><br /></span>
+        </div>
+    </div><span style="width: 634px;font-family: Inter, sans-serif;color: rgb(255,255,255);border-color: transparent;margin-bottom: 0;">Next, without rotating the faces of the cube, we inspect the top layer and find other corners that stand correctly. That is, the colors on them (except yellow) should be the same as the colors at the corners that stand under them.</span><span style="width: 634px;font-family: Inter, sans-serif;color: rgb(255,255,255);border-color: transparent;margin-bottom: 0;">Two correctly positioned corners can stand side by side or diagonally.</span>
+    <div  style="display: flex; flex-direction: row; width: fit-content;gap: 15px;margin-bottom: 0;">
+        <div  style="display: flex; flex-direction: column; justify-content: end; align-items: center; width: 300px;height: 300px;background: rgba(112,49,49,0.8);border-radius: 15px;">
+            <div style="width: 180px;height: 180px;background: #ff0000;border-radius: 15px;"></div><span  style="display: flex; align-items: end; border-radius: 15px;border-color: rgb(0,0,0);"><br />R - turn the right side clockwise<br /><br /></span>
+        </div>
+        <div  style="display: flex; flex-direction: column; justify-content: end; align-items: center; width: 300px;height: 300px;background: rgba(112,49,49,0.8);border-radius: 15px;">
+            <div style="width: 180px;height: 180px;background: #ff0000;border-radius: 15px;"></div><span  style="display: flex; align-items: end; border-radius: 15px;border-color: rgb(0,0,0);"><br />R - turn the right side clockwise<br /><br /></span>
+        </div>
+    </div><span style="width: 634px;font-family: Inter, sans-serif;color: rgb(255,255,255);border-color: transparent;margin-bottom: 0;">If there are no more such corners, you need to take any other corner on the top layer and put it in the correct place. Next, we check the other corners again. We need to find a situation where at least two corners are in the right places.</span><span style="width: 634px;font-family: Inter, sans-serif;color: rgb(255,255,255);border-color: transparent;margin-bottom: 0;">If they are standing next to each other, you need to take the cube so that the correct corners are on the left and run the algorithm. If we run the algorithm diagonally from any position, then we get the first situation where we need to place the 2 correct corners on the left and do the algorithm again.</span>
+    <div  style="display: flex; flex-direction: row; width: fit-content;gap: 15px;margin-bottom: 0;">
+        <div  style="display: flex; flex-direction: column; justify-content: end; align-items: center; width: 300px;height: 300px;background: rgba(112,49,49,0.8);border-radius: 15px;">
+            <div style="width: 180px;height: 180px;background: #ff0000;border-radius: 15px;"></div><span  style="display: flex; align-items: end; border-radius: 15px;border-color: rgb(0,0,0);"><br />R - turn the right side clockwise<br /><br /></span>
+        </div>
+        <div  style="display: flex; flex-direction: column; justify-content: end; align-items: center; width: 300px;height: 300px;background: rgba(112,49,49,0.8);border-radius: 15px;">
+            <div style="width: 180px;height: 180px;background: #ff0000;border-radius: 15px;"></div><span  style="display: flex; align-items: end; border-radius: 15px;border-color: rgb(0,0,0);"><br />R - turn the right side clockwise<br /><br /></span>
+        </div>
+    </div>
+</div> -->
+
+<div class="main-container">
+    <div class="tutorial-content">
+      <p class="title">Setting the corners of the second layer</p>
+
+      <span class="text">At this stage, you need to place the corners of the second layer correctly. So that the colors on each of the upper elements, except for yellow, match the colors of the elements below them.</span>
+
+      <span class="text">To do this, you need to find the yellow-red-green corner and put it in the right place.: above the other corner on the first layer with red and green color. It can be deployed in different ways, the main thing is that it stands in the right place.</span>
+
+      <div class="flex-row cards-row">
+        <div class="card">
+          <div class="cube-face"></div>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+        <div class="card">
+          <div class="cube-face"></div>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+        <div class="card">
+          <div class="cube-face"></div>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+      </div>
+
+      <span class="text">Next, without rotating the faces of the cube, we inspect the top layer and find other corners that stand correctly. That is, the colors on them (except yellow) should be the same as the colors at the corners that stand under them.</span>
+
+      <span class="text">Two correctly positioned corners can stand side by side or diagonally.</span>
+
+      <div class="flex-row cards-row">
+        <div class="card">
+          <div class="cube-face"></div>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+        <div class="card">
+          <div class="cube-face"></div>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+      </div>
+
+      <span class="text">If there are no more such corners, you need to take any other corner on the top layer and put it in the correct place. Next, we check the other corners again. We need to find a situation where at least two corners are in the right places.</span>
+
+      <span class="text">If they are standing next to each other, you need to take the cube so that the correct corners are on the left and run the algorithm. If we run the algorithm diagonally from any position, then we get the first situation where we need to place the 2 correct corners on the left and do the algorithm again.</span>
+
+      <div class="flex-row cards-row">
+        <div class="card">
+          <div class="cube-face"></div>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+        <div class="card">
+          <div class="cube-face"></div>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
