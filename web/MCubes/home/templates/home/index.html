@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css%}
+<link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="main-content">
+    <h1 class="section-title">What do we have?</h1>
+    <div class="cards-wrapper">
+        <div class="card card-education">
+            <h2 class="card-title">Education</h2>
+            <p class="card-desc">Here you can learn how to assemble a Rubik's cube from scratch.</p>
+            <div class="card-button">==&gt;</div>
+        </div>
+        <div class="card card-library">
+            <h2 class="card-title">Library</h2>
+            <p class="card-desc">Here you will find a collection of all formulas.</p>
+            <div class="card-button">==&gt;</div>
+        </div>
+        <div class="card card-timer">
+            <h2 class="card-title">Timer</h2>
+            <p class="card-desc">Here you can measure the speed of your assembling</p>
+            <div class="card-button">==&gt;</div>
+        </div>
+        <div class="card card-stats">
+            <h2 class="card-title">Stats</h2>
+            <p class="card-desc">Here you can track your stats and course completion.</p>
+            <div class="card-button">==&gt;</div>
+        </div>
+    </div>
+    <p class="footer-text">Choose what you need and go ahead to conquer the heights!</p>
+</main>
+
+{% endblock %}

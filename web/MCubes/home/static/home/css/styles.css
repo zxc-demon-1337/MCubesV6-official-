@@ -1,0 +1,105 @@
+/* Общие настройки */
+
+
+/* Основной контент */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.section-title {
+    font-size: 36px;
+    
+    margin: 0;
+}
+
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 376px;
+    gap: 60px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 344px;
+    border-radius: 15px;
+    padding-top: 25px;
+    font-family: 'Inter', sans-serif;
+}
+
+.card-title {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 170px;
+    height: 44px;
+    font-size: 36px;
+    color: rgb(0, 0, 0);
+}
+
+.card-desc {
+    width: 170px;
+    height: 145px;
+    font-size: 24px;
+    text-align: left;
+    line-height: 30px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 30px;
+}
+
+.card-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px;
+    height: 40px;
+    border-radius: 22px;
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+    line-height: normal;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Цвета карточек */
+.card-education {
+    background: #C0484A;
+}
+.card-education .card-button {
+    background: #F60004;
+}
+
+.card-library {
+    background: #BAC048;
+}
+.card-library .card-button {
+    background: #EAFF00;
+}
+
+.card-timer {
+    background: #48ACC0;
+}
+.card-timer .card-button {
+    background: #00CCFF;
+}
+
+.card-stats {
+    background: #8A48C0;
+}
+.card-stats .card-button {
+    background: #8C00FF;
+}
+
+.footer-text {
+    font-size: 36px;
+    text-align: center;
+    margin: 0;
+}

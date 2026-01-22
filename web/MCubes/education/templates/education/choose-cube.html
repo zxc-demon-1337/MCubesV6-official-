@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block extra_css%}
+<link rel="stylesheet" href="{% static 'education/css/choose-cube.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section-title-container">
+    <p class="section-title">Which cube will you choose?</p>
+</div>
+
+<div class="cubes-row-wrapper">
+    <div class="cubes-row">
+        <div class="cube-card">
+            <img src="{% static 'assets/img/2x2-img-1.png' %}" alt="2x2 Cube" class="cube-image">
+            <div class="cube-label">
+                <p>2x2</p>
+            </div>
+        </div>
+        <div class="cube-card">
+            <img src="{% static 'assets/img/3x3-img.png' %}" alt="3x3 Cube" class="cube-image">
+            <div class="cube-label">
+                <p>3x3</p>
+            </div>
+        </div>
+        <div class="cube-card">
+            <img src="{% static 'assets/img/4x4-img.png' %}" alt="4x4 Cube" class="cube-image">
+            <div class="cube-label">
+                <p>4x4</p>
+            </div>
+        </div>
+        <div class="cube-card">
+            <img src="{% static 'assets/img/5x5-img.png' %}" alt="5x5 Cube" class="cube-image">
+            <div class="cube-label">
+                <p>5x5</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

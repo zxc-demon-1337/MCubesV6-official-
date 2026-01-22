@@ -1,0 +1,67 @@
+/* Общие стили для секции выбора кубов */
+.section-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 86px;
+}
+
+.section-title {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    line-height: 36px;
+    margin: 0;
+}
+
+.cubes-row-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 13px;
+    padding-bottom: 15px;
+}
+
+.cubes-row {
+    display: flex;
+    flex-direction: row;
+    width: 1180px;
+    height: 436px;
+    gap: 60px;
+}
+
+.cube-card {
+    width: 250px;
+    height: 320px;
+    background: rgba(255, 238, 238, 0.5);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cube-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; /* гарантирует правильное масштабирование */
+}
+
+.cube-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 70px;
+}
+
+.cube-label p {
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    text-align: center;
+    margin: 0;
+}
