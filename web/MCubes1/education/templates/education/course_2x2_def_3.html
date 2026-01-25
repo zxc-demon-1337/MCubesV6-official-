@@ -1,0 +1,68 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/course_2x2_def_3.css' %}">
+{% endblock %}
+
+{% block container %}
+
+
+<div class="main-container">
+    <div class="tutorial-content">
+      <p class="title">{% trans "Setting the corners of the second layer" %}</p>
+
+      <span class="text">{% trans "At this stage, you need to place the corners of the second layer correctly. So that the colors on each of the upper elements, except for yellow, match the colors of the elements below them." %}</span>
+
+      <span class="text">{% trans "To do this, you need to find the yellow-red-green corner and put it in the right place.: above the other corner on the first layer with red and green color. It can be deployed in different ways, the main thing is that it stands in the right place." %}</span>
+
+      <div class="flex-row cards-row">
+        <div class="card">
+          <img src="{% static 'education/images/3_solved_1.png' %}" class="cube-face"></img>
+          <span class="instruction">{% trans "Correctly placed angle" %}</span>
+        </div>
+        <div class="card">
+          <img src="{% static 'education/images/3_solved_2.png' %}" class="cube-face"></img>
+          <span class="instruction">{% trans "Correctly placed angle" %}</span>
+        </div>
+        <div class="card">
+          <img src="{% static 'education/images/3_solved_3.png' %}" class="cube-face"></img>
+          <span class="instruction">{% trans "Correctly placed angle" %}</span>
+        </div>
+      </div>
+
+      <span class="text">{% trans "Next, without rotating the faces of the cube, we inspect the top layer and find other corners that stand correctly. That is, the colors on them (except yellow) should be the same as the colors at the corners that stand under them." %}</span>
+
+      <span class="text">{% trans "Two correctly positioned corners can stand side by side or diagonally." %}</span>
+
+      <div class="flex-row cards-row">
+        <div class="card">
+          <img src="{% static 'education/images/3_solved_5.png' %}" class="cube-face"></img>
+          <span class="instruction">{% trans "The corners stand side by side" %}</span>
+        </div>
+        <div class="card">
+          <img src="{% static 'education/images/3_solved_4.png' %}" class="cube-face"></ш>
+          <span class="instruction">{% trans "The corners stand diagonally" %}</span>
+        </div>
+      </div>
+
+      <span class="text">{% trans "If there are no more such corners, you need to take any other corner on the top layer and put it in the correct place. Next, we check the other corners again. We need to find a situation where at least two corners are in the right places." %}</span>
+
+      <span class="text">{% trans "If they are standing next to each other, you need to take the cube so that the correct corners are on the left and run the algorithm. If we run the algorithm diagonally from any position, then we get the first situation where we need to place the 2 correct corners on the left and do the algorithm again." %}</span>
+
+      <div class="flex-row cards-row">
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/3/3_3(RURiUi)y3(LiUiLU)_1.webm' %}" class="cube-face"></video>
+          <p>3(RUR'U') y 3(L'U'LU)</p>
+          <span class="instruction">{% trans "The corners stand side by side" %}</span>
+        </div>
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/3/3_3(RURiUi)y3(LiUiLU)_2.webm' %}" class="cube-face"></video>
+          <p>3(RUR'U') y 3(L'U'LU)</p>
+          <span class="instruction">{% trans "The corners stand diagonally" %}</span>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

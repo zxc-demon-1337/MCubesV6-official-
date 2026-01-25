@@ -1,0 +1,50 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/course_2x2_def_4.css' %}">
+{% endblock %}
+
+{% block container %}
+<div class="main-container">
+    <div class="tutorial-content">
+      <p class="title">Setting the corners of the second layer</p>
+
+      <span class="text">At this stage, you need to expand the 4 corners on the top layer to assemble the entire cube. We take the cube in our hands so that the white side is on top.</span>
+
+      <span class="text">We will expand the angle that is located from the bottom to our right. The moment the corner gets up correctly, the rest of the cube will collapse. Don't worry: as soon as all 4 corners are positioned correctly, the cube will reassemble.</span>
+
+      <div class="flex-row cards-row">
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/4/4_2(RURiUi).webm' %}" class="cube-face"></video>
+          <p>2(RUR'U')</p>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/4/4_4(RURiUi).webm' %}" class="cube-face"></video>
+          <p>4(RUR'U')</p>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+        <div class="card">
+          <img src="{% static 'education/images/4_solved_1.png' %}" class="cube-face"></img>
+          <p>&mdash;</p>
+          <span class="instruction">R - turn the right side clockwise</span>
+        </div>
+      </div>
+
+      <span class="text">Next, you need to move the bottom edge to put the next corner with yellow color from the bottom right. We do formules again until the corner gets up correctly. We do this until all 4 corners are positioned correctly and the cube is fully assembled.</span>
+
+      <span class="text">At this stage, a situation may arise that causes many to abandon the build. It may happen that all four corners unfolded correctly, but the first 2 layers collapsed. It is important not to move the cube in your hands and keep it in the same position.</span>
+
+      <span class="text">We need to keep doing formules. After a certain number of bangs, the first two layers will come together, but there will be one unrolled corner. This is an impossible situation, and it only means that this corner unfolded mechanically on the cube. That is, you just need to take it with your fingers and physically turn it so that it stands up correctly.</span>
+
+      <P class="title">
+        ATTENTION, an impossible situation!
+      </P>
+      <span class="text">
+        Only one corner cannot be expanded. You need to turn it over mechanically.
+      </span>
+
+    </div>
+</div>
+{% endblock %}

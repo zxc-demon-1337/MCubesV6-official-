@@ -1,0 +1,41 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/course_2x2_def_1.css' %}">
+{% endblock %}
+{% block container %}
+    <main class="content1">
+        <h1>{% trans 'The language of rotations' %}</h1>
+        <span class="note">{% trans 'If there is a number 2 next to the letter, it means 2 rotations.' %}</span>
+        <div class="grid">
+            <!-- Row 1 -->
+            <div class="row">
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_U.webm' %}" class="cube-face"></video><p>U</p><span class="vid-label">Turn the upper face clockwise</span></div>
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_Ui.webm' %}" class="cube-face"></video><p>U'</p><span class="vid-label">Turn the upper face counterclockwise</span></div>
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_D.webm' %}" class="cube-face"></video><p>D</p><span class="vid-label">Turn the bottom face clockwise</span></div>
+            </div>
+            <!-- Row 2 -->
+            <div class="row">
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_Di.webm' %}" class="cube-face"></video><p>D'</p><span class="vid-label">Turn the bottom face counterclockwise</span></div>
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_R.webm' %}" class="cube-face"></video><p>R</p><span class="vid-label">Turn the right side clockwise</span></div>
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_Ri.webm' %}" class="cube-face"></video><p>R'</p><span class="vid-label">Turn the right face counterclockwise</span></div>
+            </div>
+            <!-- Row 3 -->
+            <div class="row">
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_L.webm' %}" class="cube-face"></video><p>L</p><span class="vid-label">Turn the left side clockwise</span></div>
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_Li.webm' %}" class="cube-face"></video><p>L'</p><span class="vid-label">Turn the left face counterclockwise</span></div>
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_F.webm' %}" class="cube-face"></video><p>F</p><span class="vid-label">Turn the front face clockwise</span></div>
+            </div>
+            <!-- Row 4 -->
+            <div class="row">
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_Fi.webm' %}" class="cube-face"></video><p>F'</p><span class="vid-label">Turn the front face counterclockwise</span></div>
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_B.webm' %}" class="cube-face"></video><p>B</p><span class="vid-label">Turn the back face clockwise</span></div>
+                <div class=" card video-wrapper"><video muted src="{% static 'education/videos/1/1_Bi.webm' %}" class="cube-face"></video><p>B'</p><span class="vid-label">Turn the back face counterclockwise</span></div>
+            </div>
+        </div>
+        <span class="note">If there is a number 2 next to the letter, it means 2 rotations.</span>
+    </main>
+    <script src="{% static 'education/js/course_2x2_def_1.js' %}"></script>
+{% endblock %}

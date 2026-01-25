@@ -1,0 +1,79 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/course_2x2_def_2.css' %}">
+{% endblock %}
+
+{% block container %}
+
+<div class="main-container">
+    <div class="tutorial-content">
+      <p class="title">{% trans 'The first side' %}</p>
+
+      <span class="text">{% trans 'First you need to assemble the first layer on either side. For convenience, we will assemble it on a white one. We find any corner with a white color on the cube. For example, white-red-green. This corner will be the base of the first layer.' %}</span>
+
+      <span class="text">{% trans 'First you need to assemble the first layer on either side. For convenience, we will assemble it on a white one. We find any corner with a white color on the cube. For example, white-red-green. This corner will be the base of the first layer.' %}</span>
+
+      <div class="flex-row cards-row">
+        <div class="card">
+          <img src="{% static 'education/images/2_solved-2.png' %}" class="cube-face"></img>
+          <span class="instruction">{% trans 'The assembled first layer' %}</span>
+        </div>
+        <div class="card">
+          <img src="{% static 'education/images/2_solved-1.png' %}" class="cube-face"></img>
+          <span class="instruction">{% trans 'The assembled first layer' %}</span>
+        </div>
+      </div>
+
+      <span class="text">{% trans 'After that, we find another corner with a white color, which has a color that looks at us at the first corner. In our case, it is a white-green-orange corner. It should be placed in front of us from the top right.' %}</span>
+
+      <span class="text">{% trans 'We look at where the white color is directed: towards us, to the side, or upward. Depending on this, we perform one of three algorithms' %}.</span>
+
+      <div class="flex-row cards-row">
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/2/2_(RURiUi).webm' %}" class="cube-face"></video>
+          <p>(RUR'U')</p>
+          <span class="instruction">{% trans 'The white cube is facing away' %}</span>
+        </div>
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/2/2_3(RURiUi).webm' %}" class="cube-face"></video>
+          <p>3(RUR'U')</p>
+          <span class="instruction">The white element is up</span>
+        </div>
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/2/2_5(RURiUi).webm' %}" class="cube-face"></video>
+          <p>5(RUR'U')</p>
+          <span class="instruction">{% trans 'The white element is looking at us' %}</span>
+        </div>
+      </div>
+
+      <span class="text">{% trans "There may be cases when the corner is already at the bottom in its own or someone else's place and is incorrectly deployed." %}</span>
+
+      <div class="flex-row cards-row">
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/2/2_(RURiUi)_then_(RURiUi).webm' %}" class="cube-face"></video>
+          <p>(RUR'U')</p>
+          <span class="instruction">{% trans "Then - (RUR'U')" %}</span>
+        </div>
+        <div class="card video-wrapper">
+          <video src="{% static 'education/videos/2/2_(RURiUi)_then_3(RURiUi).webm' %}" class="cube-face"></video>
+          <p>(RUR'U')</p>
+          <span class="instruction">{% trans "Then - 3(RUR'U')" %}</span>
+        </div>
+        <div class="card video-wrapper">
+          <video  src="{% static 'education/videos/2/2_(RURiUi)_then_5(RURiUi).webm' %}" class="cube-face"></video>
+          <p>(RUR'U')</p>
+          <span class="instruction">{% trans "Then - 5(RUR'U')" %}</span>
+        </div>
+      </div>
+
+      <span class="text">{% trans 'After the second corner is positioned correctly, we need to intercept the cube in our hands so that this corner is at the bottom to our left. Just like the first corner used to be.' %}</span>
+
+      <span class="text">{% trans 'Next, we do the same thing: we find an element with a white color, which also has a color that looks at us at the bottom corner. This is a white-orange-blue corner. We put it on the top right in front of us, look at where the white color is directed, and make an algorithm.' %}</span>
+
+      <span class="text">{% trans 'After that, we do the same with the last corner.' %}</span>
+    </div>
+</div>
+{% endblock %}

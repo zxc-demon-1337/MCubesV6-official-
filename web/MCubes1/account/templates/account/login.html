@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'account/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- <div style="display: flex; flex-direction: row; height: 100%;padding: 0;">
+    <div style="display: flex; flex-direction: column; width: 100%;height: 100%;">
+        <p style="text-align: center; display: flex; justify-content: center; align-items: center; color: rgb(255,255,255);font-family: Inter, sans-serif;font-size: 36px;line-height: 36px;margin-bottom: 0;">Login</p>
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;/*пфз: 50зч;*/gap: 50px;">
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 473px;width: 349px;background: rgba(30,0,255,0.5);border-radius: 25px;gap: 50px;">
+                <p style="text-align: center; display: flex; justify-content: center; align-items: center; color: rgb(255,255,255);font-family: Inter, sans-serif;font-size: 36px;line-height: 36px;margin-bottom: 0;">Hi again!</p>
+                <div style="display: flex; flex-direction: ; width: fit-content;height: fit-content;gap: 20px;">
+                    <div style="display: flex; justify-content: center; align-items: center; height: 27px;width: 300px;border-radius: 6px;background: #00000000;border: 2px solid #0048FF;color: #ffff;"><span style="width: 300px;height: 27px;background: rgba(32,32,32,0);color: #256FC3;">Login</span></div>
+                    <div style="height: 27px;width: 300px;border-radius: 6px;background: #00000000;border: 2px solid #0048FF;color: #ffff;"><span style="width: 300px;height: 27px;background: rgba(32,32,32,0);color: #256FC3;">Password</span></div>
+                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; height: 27px;width: 300px;border-radius: 6px;background: #0048FF;border: 2px solid #0048FF;color: #ffff;"><span style="width: auto;height: auto;background: rgba(32,32,32,0);color: #ffff;">Log in</span></div>
+                    <div style="height: 27px;width: 300px;border-radius: 6px;background: #00000000;border: 2px solid #0048FF;color: #ffff;"><span style="width: 300px;height: 27px;background: rgba(32,32,32,0);">Dont have an account? Register <a class="text-decoration-none" href="#" style="color: #00FF6F;"><span style="color: rgb(255, 255, 255);">here</span><br /><br /></a></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="main-container">
+    <div class="content">
+      <p class="title">Login</p>
+        <div class="form-wrapper">
+            <div class="form-card">
+                <p class="greeting">Hi again!</p>
+                <div class="input-section">
+                    <div class="input-field">
+                        <span class="label">Login</span>
+                    </div>
+                    <div class="input-field">
+                        <span class="label">Password</span>
+                    </div>
+                    <div class="login-btn">
+                        <span>Log in</span>
+                    </div>
+                    <div class="register-link">
+                        <p>Dont have an account? Register <a href="#" class="register-here">here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

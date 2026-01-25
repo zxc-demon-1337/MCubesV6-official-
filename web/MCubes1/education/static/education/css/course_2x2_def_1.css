@@ -1,0 +1,45 @@
+/* Main Content */
+.content1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.content h1,
+.content .note {
+  text-align: center;
+  margin: 20px 0;
+  line-height: 1.2;
+  color: white;
+}
+.note{
+  font-size: 1rem;
+}
+/* Grid of Cards */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+
+
+.cube-face {
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+}
+
+
+
+#the-language-of-rotations {
+  background-color: rgba(187, 59, 59, 0.9);
+}
