@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/home/eblan/Документы/MCubes/web/venv'
+set -gx VIRTUAL_ENV '/home/eblan/Документы/MCubesV6-official-/web/venv'
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

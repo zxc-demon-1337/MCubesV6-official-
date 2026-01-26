@@ -1,4 +1,4 @@
-#!/home/eblan/Документы/MCubes/web/venv/bin/python
+#!/home/eblan/Документы/MCubesV6-official-/web/venv/bin/python
 import sys
 from pip._internal.cli.main import main
 if __name__ == '__main__':

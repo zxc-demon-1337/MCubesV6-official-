@@ -1,4 +1,4 @@
-#!/home/eblan/Документы/MCubes/web/venv/bin/python
+#!/home/eblan/Документы/MCubesV6-official-/web/venv/bin/python
 import sys
 from django.core.management import execute_from_command_line
 if __name__ == '__main__':
