@@ -65,6 +65,7 @@ body {
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     user-select: none;
+    transition: color .5s ease;
 }
 
 .lang-switch {
@@ -128,4 +129,39 @@ body {
     user-select: none;
     text-decoration: none;
     color: #ffffff;
+}
+
+#link-home:hover{
+    color: #48c072;
+    transition: color .5s ease;
+}
+
+#link-education:hover{
+    color: #c04848;
+    transition: color .5s ease;
+}
+
+#link-library:hover{
+    color: #bac048;
+    transition: color .5s ease;
+}
+
+#link-timer:hover{
+    color: #48a4c0;
+    transition: color .5s ease;
+}
+
+#link-stats:hover{
+    color: #aa48c0;
+    transition: color .5s ease;
+}
+
+#link-about-us:hover{
+    color: #c0a448;
+    transition: color .5s ease;
+}
+
+#link-account:hover{
+    color: #484cc0;
+    transition: color .5s ease;
 }

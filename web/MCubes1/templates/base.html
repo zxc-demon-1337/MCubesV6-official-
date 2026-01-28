@@ -31,12 +31,12 @@
         </form>
         <div class="nav-content">
             <div class="nav-links">
-                <a href="{% url 'home' %}" class="nav-link a-button">{% trans "Home" %}</a>
-                <a href="{% url 'education' %}" class="nav-link a-button">{% trans "Education" %}</a>
-                <a href="#" class="nav-link a-button">{% trans "Library" %}</a>
-                <a href="#" class="nav-link a-button">{% trans "Timer" %}</a>
-                <a href="#" class="nav-link a-button">{% trans "Stats" %}</a>
-                <a href="#" class="nav-link a-button">{% trans "About us" %}</a>
+                <a id="link-home" href="{% url 'home' %}" class="nav-link a-button">{% trans "Home" %}</a>
+                <a id="link-education" href="{% url 'education' %}" class="nav-link a-button">{% trans "Education" %}</a>
+                <a id="link-library" href="#" class="nav-link a-button">{% trans "Library" %}</a>
+                <a id="link-timer" href="#" class="nav-link a-button">{% trans "Timer" %}</a>
+                <a id="link-stats" href="#" class="nav-link a-button">{% trans "Stats" %}</a>
+                <a id="link-about-us" href="#" class="nav-link a-button">{% trans "About us" %}</a>
             </div>
         </div>
        
@@ -62,9 +62,15 @@
   </button>
 </form>
         <div class="spacer"><p>Текущий язык: {{ CURRENT_LANG }}</p></div> -->
-        <a class="account-text a-button nav-link a-button" href="{% url 'account' %}">Account</a>
+        <a id="link-account" class="account-text a-button nav-link a-button" href="{% url 'account:profile' %}">
+        {% if user.is_authenticated %}
+            {{ user.nickname }}
+        {% else %}
+            account
+        {% endif %}
+        </a>
         <div class="avatar-container">
-            <div class="avatar-nav"></div>
+            <img src="{{ user.avatar.url }}" class="avatar-nav"></img>
         </div>
     </nav>
     <main class="content">

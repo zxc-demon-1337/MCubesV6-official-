@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'account/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <div class="content">
+      <p class="title">{{ user.nickname }}</p>
+      <div class="profile-wrapper">
+        <div class="profile-card">
+          <div class="info-section">
+            <div class="input-group">
+              <div class="input-row">
+                <span class="label">Nickname</span>
+                {% csrf_token %}
+                <span class="value-span">{{ user.nickname }}</span>
+                <button class="change-btn">Change</button>
+              </div>
+              <div class="input-row">
+                <span class="label">E-mail</span>
+                <span class="value-span">{{ user.email }}</span>
+                <button class="change-btn">Change</button>
+              </div>
+              <div class="input-row">
+                <span class="label">Password</span>
+                <span class="value-span">****************</span>
+                <button class="change-btn">Change</button>
+              </div>
+              <div class="input-row">
+                <span class="label">Avatar</span>
+                <button class="change-btn">Change</button>
+              </div>
+            </div>
+                <form method="post" action="{% url 'account:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="sign-out-btn">Sign Out</button>
+                </form>
+          </div>
+          <span><img class="avatar" src="{{ user.avatar.url }}" alt="Avatar" /></span>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.change-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const row = this.closest('.input-row');
+        const valueEl = row.querySelector('.value-span');
+        const field = row.querySelector('.label').textContent.toLowerCase();
+
+        if (!valueEl) {
+            console.error("valueEl не найден в строке:", row);
+            return;
+        }
+
+        if (this.textContent === 'Change') {
+            switchToEdit(field, valueEl, this);
+        } else {
+            switchToView(field, valueEl, this);
+        }
+    });
+});
+
+function switchToEdit(field, valueEl, button) {
+    if (!valueEl) {
+        console.error("valueEl is null");
+        return;
+    }
+
+    // 🔥 Сохраняем исходное значение
+    const currentValue = valueEl.textContent?.trim() || '';
+    button._originalValue = currentValue;
+
+    button._valueEl = valueEl;
+
+    let inputHtml;
+
+    if (field === 'password') {
+        inputHtml = '<input type="password" value="" class="edit-input">';
+    } else if (field === 'avatar') {
+        inputHtml = '<input type="file" accept="image/*" class="edit-input">';
+    } else {
+        inputHtml = `<input type="text" value="${currentValue}" class="edit-input">`;
+    }
+
+    valueEl.innerHTML = inputHtml;
+    button.textContent = 'Cancel';
+    button.insertAdjacentHTML('afterend', ' <button class="save-btn" data-field="' + field + '">Save</button>');
+}
+
+function switchToView(field, valueEl, button) {
+    const row = button.closest('.input-row');
+    const saveBtn = row.querySelector('.save-btn');
+    if (saveBtn) saveBtn.remove();
+
+    // 🔁 Восстанавливаем span с **исходным** значением (при Cancel)
+    const input = valueEl.querySelector('.edit-input');
+    if (input) {
+        // 🔥 Берём исходное значение, а не то, что ввёл пользователь
+        const originalValue = button._originalValue || '';
+        valueEl.innerHTML = `<span class="value-span">${originalValue}</span>`;
+    }
+
+    button.textContent = 'Change';
+}
+
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('save-btn')) {
+        const field = e.target.getAttribute('data-field');
+        const row = e.target.closest('.input-row');
+        const changeBtn = row.querySelector('.change-btn');
+        const valueEl = changeBtn._valueEl; // ✅ Используем сохранённую ссылку
+
+        if (!valueEl) {
+            console.error("valueEl не найден в .then()");
+            return;
+        }
+
+        const input = valueEl.querySelector('.edit-input');
+        const value = input.value;
+        const file = input.type === 'file' ? input.files[0] : null;
+
+        if (field === 'password' && value.length < 8) {
+            alert('Пароль должен быть не менее 8 символов');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('field', field);
+        if (file) {
+            formData.append('value', file);
+        } else {
+            formData.append('value', value);
+        }
+        formData.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+
+        fetch('/account/update_account/', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                if (field === 'avatar' && data.new_value) {
+                    const img = document.querySelector('.avatar');
+                    if (img) img.src = data.new_value;
+                } else {
+                    // ✅ Обновляем значение на серверное
+                    if ('new_value' in data) {
+                        valueEl.innerHTML = `<span class="value-span">${data.new_value}</span>`;
+                    } else {
+                        console.warn("new_value отсутствует в ответе", data);
+                        valueEl.innerHTML = `<span class="value-span">${value}</span>`; // fallback
+                    }
+                }
+
+                // ✅ Возвращаем кнопку в состояние "Change"
+                changeBtn.textContent = 'Change';
+                e.target.remove(); // удаляем кнопку "Save"
+            } else {
+                alert(data.error || 'Ошибка при сохранении');
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert('Произошла ошибка при сохранении');
+        });
+    }
+});
+</script>
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

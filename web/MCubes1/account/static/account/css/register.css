@@ -47,14 +47,23 @@ body {
 .form-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   height: fit-content;
   width: fit-content;
   background: rgba(30, 0, 255, 0.5);
   border-radius: 25px;
   padding: 20px;
-  gap: 50px;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 25px;
+  padding: 20px;
+  gap: 20px;
 }
 
 .greeting {
@@ -113,6 +122,7 @@ body {
     color: #fff;
     transition: background-color .5s ease, border .5s ease;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .register-btn:hover{
@@ -155,4 +165,50 @@ body {
 .login-here {
   text-decoration: none;
   color: #00FF6F;
+}
+
+
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }

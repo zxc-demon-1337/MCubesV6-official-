@@ -145,3 +145,10 @@ LOCALE_PATHS = [
 # Укажите путь к bin-папке gettext, если он не в PATH
 os.environ['PATH'] = r'C:\Program Files\gettext-iconv\bin;' + os.environ['PATH']
 
+AUTH_USER_MODEL = 'account.MyAccount'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = '/account/login/'  # ← Правильно
+# или

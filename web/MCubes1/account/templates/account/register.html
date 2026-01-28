@@ -33,23 +33,35 @@
             <div class="form-card">
                 <p class="greeting">Hi!</p>
                 <div class="input-section">
-                    <div class="input-field">
-                        <span class="label">Nickname</span>
-                    </div>
-                    <div class="input-field">
-                        <span class="label">E-mail</span>
-                    </div>
-                    <div class="input-field">
-                        <span class="label">Password</span>
-                    </div>
-                    <div class="input-field">
-                        <p class="label">Password again</p>
-                    </div>
-                    <div class="register-btn">
-                        <span>Register</span>
-                    </div>
+                    <form method="post" class="form-field">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.nickname.label_tag }}
+                            {{ form.nickname }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.email.label_tag }}
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password1.label_tag }}
+                            {{ form.password1 }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password2.label_tag }}
+                            {{ form.password2 }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.avatar.label_tag }}
+                            {{ form.avatar }}
+                        </div>
+                        
+                        <button type="submit" class="register-btn">
+                            <span>register</span>
+                        </button>
+                    </form>
                     <div class="login-link">
-                        <p class="login-label">Already have an account? Log in <a href="#" class="login-here"> here</a></p>
+                        <p class="login-label">Already have an account? Log in <a href="{% url 'account:login' %}" class="login-here"> here</a></p>
                     </div>
                 </div>
             </div>
