@@ -1,0 +1,40 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/course_2x2_def_introduction.css' %}">
+{% endblock %}
+
+{% block container %}
+
+
+<div class="main-container">
+    <div class="tutorial-content">
+      <p class="title">{% trans "Introduction" %}</p>
+
+      <span class="text">{% trans 'Для того что бы научиться собирать кубик Рубика 2x2, вам нужно знать язык вращений запомнить 2 формулы: правый "пиф-паф" и левый "пиф-паф"' %}</span>
+        <div class="flex-row cards-row">
+            <div class="card video-wrapper">
+            <video src="{% static 'education/videos/0/0_RURiUi.webm' %}" class="cube-face"></video>
+            <p>RUR'U'</p>
+            <span class="instruction">{% trans 'правый "пиф-паф"' %}</span>
+            </div>
+            <div class="card video-wrapper">
+            <video src="{% static 'education/videos/0/0_LiUiLU.webm' %}" class="cube-face"></video>
+            <p>L'U'LU</p>
+            <span class="instruction">{% trans 'левый "пиф-паф"' %}</span>
+            </div>
+        </div>
+      <span class="text">{% trans "Также вам может встретиться запись по типу 3(RUR'U'), это означает, что формулу в скобках (в данном случае RUR'U'), нужно повторить 3 раза." %}</span>
+      <span class="text">{% trans "Если вы увидите фото кубика с красной окантовкой, это означает, что вы, по нажатию на кубик, можете просмотреть видео-анимацию формулы, подписанной под ним." %}</span>
+
+
+    </div>
+    <div class="nav-buttons">
+        <button class="back">Назад</button>
+        <button class="next">Далее</button>
+    </div>
+
+</div>
+
+{% endblock %}

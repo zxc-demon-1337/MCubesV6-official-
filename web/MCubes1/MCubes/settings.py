@@ -75,7 +75,6 @@ TEMPLATES = [
         },
     },
 ]
-print("✅ BASE_DIR:", BASE_DIR)
 WSGI_APPLICATION = 'MCubes.wsgi.application'
 
 

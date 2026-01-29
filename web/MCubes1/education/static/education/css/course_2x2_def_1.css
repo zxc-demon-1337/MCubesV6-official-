@@ -43,3 +43,8 @@
 #the-language-of-rotations {
   background-color: rgba(187, 59, 59, 0.9);
 }
+
+.cool-card{
+  height: 272px;
+  /* height: fit-content; */
+}

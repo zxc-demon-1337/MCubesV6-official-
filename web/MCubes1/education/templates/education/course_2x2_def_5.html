@@ -1,6 +1,6 @@
 {% extends 'navbar.html' %}
 {% load static %}
-
+{% load i18n %}
 {% block extra_css2 %}
 <link rel="stylesheet" href="{% static 'education/css/course_2x2_def_5.css' %}">
 {% endblock %}
@@ -8,11 +8,11 @@
 {% block container %}
 <div class="main-container">
     <span class="title">
-        You did it!!
+        {% trans "You did it!!" %}
     </span>
-    <span class="text">Congratulations on your first victory over the Rubik's Cube 2x2!</span>
-    <span class="text">You've just proved that even the most complicated tasks are amenable to logic, patience, and perseverance. This is your first step into the wonderful world of puzzles, high—speed collecting and spatial thinking.</span>
-    <span class="text">Let this little cube be the beginning of something big: new records, interesting discoveries, and maybe even hobbies for years to come. Keep your grip — there's still 3x3, 4x4 ahead... and who knows, maybe one day you'll assemble the 5x5 blindly!</span>
-    <span class="text">Well done!</span>
+    <span class="text">{% trans "Congratulations on your first victory over the Rubik's Cube 2x2!" %}</span>
+    <span class="text">{% trans "You've just proved that even the most complicated tasks are amenable to logic, patience, and perseverance. This is your first step into the wonderful world of puzzles, high—speed collecting and spatial thinking." %}</span>
+    <span class="text">{% trans "Let this little cube be the beginning of something big: new records, interesting discoveries, and maybe even hobbies for years to come. Keep your grip — there's still 3x3, 4x4 ahead... and who knows, maybe one day you'll assemble the 5x5 blindly!" %}</span>
+    <span class="text">{% trans "Well done!" %}</span>
 </div>
 {% endblock %}
