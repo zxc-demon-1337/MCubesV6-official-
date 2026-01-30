@@ -165,3 +165,9 @@ body {
     color: #484cc0;
     transition: color .5s ease;
 }
+
+.avavtar{
+    height: 40px;
+    width: 40px;
+    border-radius: 25px;
+}

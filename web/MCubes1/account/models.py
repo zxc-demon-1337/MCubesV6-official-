@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.conf import settings
 
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, nickname, password=None):
@@ -29,7 +30,7 @@ class MyAccount(AbstractBaseUser, PermissionsMixin):
     id = models.AutoField(primary_key=True)
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
     nickname = models.CharField(max_length=30, unique=True)
-    avatar = models.ImageField(upload_to='avatars/', default='avatars/default.png')
+    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
@@ -37,7 +38,7 @@ class MyAccount(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'  # Поле для входа
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['nickname']
 
     objects = MyAccountManager()
@@ -50,3 +51,10 @@ class MyAccount(AbstractBaseUser, PermissionsMixin):
 
     def has_module_perms(self, app_label):
         return True
+    
+    # Свойство для получения URL аватара
+    @property
+    def avatar_url(self):
+        if self.avatar and hasattr(self.avatar, 'url'):
+            return self.avatar.url
+        return settings.MEDIA_URL + 'avatars/default.png'

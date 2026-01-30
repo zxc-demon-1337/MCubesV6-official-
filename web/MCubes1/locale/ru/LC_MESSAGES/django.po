@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-29 21:08+0300\n"
+"POT-Creation-Date: 2026-01-30 17:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,17 @@ msgstr ""
 #: .\MCubes\settings.py:137
 msgid "Russian"
 msgstr ""
+
+#: .\education\templates\education\choose-cube.html:11
+msgid "Which cube will you choose?"
+msgstr "Какой кубик вы выберете?"
+
+#: .\education\templates\education\choose-cube.html:22
+#: .\education\templates\education\choose-cube.html:32
+#: .\education\templates\education\choose-cube.html:42
+#: .\education\templates\education\choose-cube.html:52
+msgid "For beginners"
+msgstr "Для новичков"
 
 #: .\education\templates\education\course_2x2_def_1.html:10
 #: .\templates\navbar.html:17
@@ -101,20 +112,47 @@ msgstr ""
 "Весь куб вращается против часовой стрелки в горизонтальной плоскости (F "
 "превращается в R)."
 
+#: .\education\templates\education\course_2x2_def_1.html:46
+#: .\education\templates\education\course_2x2_def_2.html:79
+#: .\education\templates\education\course_2x2_def_3.html:66
+#: .\education\templates\education\course_2x2_def_4.html:42
+#: .\education\templates\education\course_2x2_def_5.html:18
+#: .\education\templates\education\course_2x2_def_introduction.html:34
+msgid "Back"
+msgstr "Назад"
+
+#: .\education\templates\education\course_2x2_def_1.html:47
+#: .\education\templates\education\course_2x2_def_2.html:80
+#: .\education\templates\education\course_2x2_def_3.html:67
+#: .\education\templates\education\course_2x2_def_4.html:43
+#: .\education\templates\education\course_2x2_def_5.html:19
+#: .\education\templates\education\course_2x2_def_introduction.html:35
+msgid "Next"
+msgstr "Далее"
+
 #: .\education\templates\education\course_2x2_def_2.html:13
 #: .\templates\navbar.html:18
 msgid "The first side"
 msgstr "Первая сторона"
 
 #: .\education\templates\education\course_2x2_def_2.html:15
-msgid "After that, we find another corner with a white color, which has a color that looks at us at the first corner. In our case, it is a white-green-orange corner. It should be placed in front of us from the top right."
-msgstr "После этого мы находим другой угол белого цвета, который имеет цвет, который смотрит на нас из первого угла. В нашем случае это бело-зелено-оранжевый угол. Он должен быть расположен перед нами справа вверху."
+msgid ""
+"First you need to assemble the first layer on either side. For convenience, "
+"we will assemble it on a white one. We find any corner with a white color on "
+"the cube. For example, white-red-green. This corner will be the base of the "
+"first layer."
+msgstr ""
+"Сначала нужно собрать первый слой на любой из сторон. Для удобства мы будем "
+"собирать белую сторону. Находим на кубе любой угол с белым цветом. Например, "
+"бело-красно-зеленый. Этот угол и будет основой первого слоя."
 
 #: .\education\templates\education\course_2x2_def_2.html:17
-msgid "You need to place it at the bottom left so that the white side looks down. It turns out that the green color is looking at us."
-msgstr "Нужно разместить его внизу слева так, чтобы белая сторона смотрела вниз. Получается, что на нас смотрит зеленый цвет."
-
-
+msgid ""
+"You need to place it at the bottom left so that the white side looks down. "
+"It turns out that the green color is looking at us."
+msgstr ""
+"Вам нужно расположить его слева внизу так, чтобы белая сторона смотрела "
+"вниз. Получается, что зеленый цвет смотрит на нас."
 
 #: .\education\templates\education\course_2x2_def_2.html:22
 #: .\education\templates\education\course_2x2_def_2.html:26
@@ -127,7 +165,7 @@ msgid ""
 "that looks at us at the first corner. In our case, it is a white-green-"
 "orange corner. It should be placed in front of us from the top right."
 msgstr ""
-"После этого мы находим другой угол с белым цветом, который имеет цвет , "
+"После этого мы находим другой угол с белым цветом, у которого есть цвет , "
 "который смотрит на нас в первом углу. В нашем случае это бело-зелено-"
 "оранжевый угол. Он должен быть расположен перед нами в правом верхнем углу."
 
@@ -221,7 +259,7 @@ msgid ""
 msgstr ""
 "Для этого вам нужно найти желто-красно-зеленый уголок и поместить его в "
 "нужное место: над другим уголком на первом слое красного и зеленого цветов. "
-"Его можно развернуть по-разному, главное, чтобы онстоял в нужном месте."
+"Его можно развернуть по-разному, главное, чтобы он стоял в нужном месте."
 
 #: .\education\templates\education\course_2x2_def_3.html:22
 #: .\education\templates\education\course_2x2_def_3.html:26
@@ -238,7 +276,7 @@ msgid ""
 msgstr ""
 "Затем, не поворачивая грани куба, мы осматриваем верхний слой и находим "
 "другие углы, которые расположены правильно. То есть цвета на них (кроме "
-"желтый) должны совпадать с цветами в углах, которые расположены подними."
+"желтого) должны совпадать с цветами в углах, которые расположены под ними."
 
 #: .\education\templates\education\course_2x2_def_3.html:36
 msgid "Two correctly positioned corners can stand side by side or diagonally."
@@ -265,7 +303,7 @@ msgid ""
 msgstr ""
 "Если таких уголков больше нет, вам нужно взять любой другой уголок наверхнем "
 "слое и поместить его на нужное место. Затем мы снова проверяем остальные "
-"уголки.Нам нужно найти ситуацию, при которой по крайней мере два поворота "
+"уголки. Нам нужно найти ситуацию, при которой по крайней мере два поворота "
 "будут находиться в нужных местах."
 
 #: .\education\templates\education\course_2x2_def_3.html:51
@@ -276,10 +314,10 @@ msgid ""
 "where we need to place the 2 correct corners on the left and do the "
 "algorithm again."
 msgstr ""
-"Если они стоят рядом друг с другом, нужно взять куб так, чтобы правильные "
-"углы были слева, и запустить алгоритм. Если мы запустим алгоритм по "
-"диагонали из любой позиции, то получим первую ситуацию где нам нужно "
-"поместить 2 правильных угла слева и повторить алгоритм."
+"Если они стоят бок о бок, нужно взять куб так, чтобы правильные углы были "
+"слева, и сделать алгоритм. Если же уголки стоят по диагонали, то сделаем "
+"алгоритм из любой позиции, и получим первую ситуацию где нам нужно поместить "
+"2 правильных угла слева и повторить алгоритм."
 
 #: .\education\templates\education\course_2x2_def_4.html:11
 #: .\templates\navbar.html:20
@@ -296,10 +334,21 @@ msgstr ""
 "весь кубик целиком. Берем кубик в руки так, чтобы белая сторона была сверху."
 
 #: .\education\templates\education\course_2x2_def_4.html:15
+msgid ""
+"We will rotate the angle that is located from the bottom to our right. The "
+"moment the corner gets up correctly, the rest of the cube will collapse. "
+"Don't worry: as soon as all 4 corners are positioned correctly, the cube "
+"will reassemble."
+msgstr ""
+"Мы повернём угол, расположенный снизу справа от нас. Как только угол встанет "
+"правильно, остальная часть куба разрушится.  Не волнуйтесь! Как только все 4 "
+"угла будут расположены правильно, куб соберется заново."
 
-msgid "We will rotate the angle that is located from the bottom to our right. The moment the corner gets up correctly, the rest of the cube will collapse. Don't worry: as soon as all 4 corners are positioned correctly, the cube will reassemble."
-msgstr "Мы повернём угол, расположенный снизу справа от нас. Как только угол встанет правильно, остальная часть куба разрушится.  Не волнуйтесь! Как только все 4 угла будут расположены правильно, куб соберется заново."
-
+#: .\education\templates\education\course_2x2_def_4.html:16
+msgid ""
+"В зависимости от разворота уголка, нужно будет использовать одну из трёх "
+"формул:"
+msgstr ""
 
 #: .\education\templates\education\course_2x2_def_4.html:21
 msgid "The yellow color looks to the right side"
@@ -387,10 +436,8 @@ msgstr "Отличная работа!"
 
 #: .\education\templates\education\course_2x2_def_introduction.html:13
 #: .\templates\navbar.html:16
-#, fuzzy
-#| msgid "Education"
 msgid "Introduction"
-msgstr "Обучение"
+msgstr "Введение"
 
 #: .\education\templates\education\course_2x2_def_introduction.html:15
 msgid ""
@@ -410,6 +457,13 @@ msgstr ""
 msgid ""
 "Также вам может встретиться запись по типу 3(RUR'U'), это означает, что "
 "формулу в скобках (в данном случае RUR'U'), нужно повторить 3 раза."
+msgstr ""
+
+#: .\education\templates\education\course_2x2_def_introduction.html:29
+msgid ""
+"Если вы увидите фото кубика с красной окантовкой, это означает, что вы, по "
+"нажатию на кубик, можете просмотреть видео-анимацию формулы, подписанной под "
+"ним."
 msgstr ""
 
 #: .\home\templates\home\index.html:12

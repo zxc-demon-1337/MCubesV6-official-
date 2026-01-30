@@ -42,6 +42,10 @@
 
         </div>
         <span class="note">{% trans "If there is a number 2 next to the letter, it means 2 rotations." %}</span>
+        <div class="nav-buttons">
+            <span id="the-cube-is-assembled" class="nav-button back card-button" data-href="{% url 'course_2x2_def_introduction' %}">{% trans "Back" %}</span>
+            <span id="the-cube-is-assembled" class="nav-button next card-button" data-href="{% url 'course_2x2_def_2' %}">{% trans "Next" %}</span>
+        </div>
     </main>
     <script src="{% static 'education/js/course_2x2_def_1.js' %}"></script>
 {% endblock %}

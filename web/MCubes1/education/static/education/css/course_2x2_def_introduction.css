@@ -2,8 +2,9 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding-top: 20px;
 }
 
@@ -61,3 +62,4 @@
 #introduction{
     background-color: rgba(187, 59, 59, 0.9);
 }
+

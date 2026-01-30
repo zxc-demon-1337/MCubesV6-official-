@@ -12,8 +12,9 @@ def register(request):
         form = MyAccountRegisterForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
+            print("Avatar path:", user.avatar.name)
             login(request, user)
-            return redirect('account')
+            return redirect('account:profile')
     else:
         form = MyAccountRegisterForm()
     return render(request, 'account/register.html', {'form': form})

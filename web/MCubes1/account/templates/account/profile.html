@@ -33,13 +33,14 @@
               </div>
               <div class="input-row">
                 <span class="label">Avatar</span>
+                <span class="value-span"></span>
                 <button class="change-btn">Change</button>
               </div>
-            </div>
                 <form method="post" action="{% url 'account:logout' %}">
-                    {% csrf_token %}
-                    <button type="submit" class="sign-out-btn">Sign Out</button>
+                {% csrf_token %}
+                <button type="submit" class="sign-out-btn">Sign Out</button>
                 </form>
+            </div>
           </div>
           <span><img class="avatar" src="{{ user.avatar.url }}" alt="Avatar" /></span>
         </div>
@@ -73,27 +74,57 @@ function switchToEdit(field, valueEl, button) {
         return;
     }
 
-    // 🔥 Сохраняем исходное значение
+    // Сохраняем исходное значение
     const currentValue = valueEl.textContent?.trim() || '';
     button._originalValue = currentValue;
-
     button._valueEl = valueEl;
 
     let inputHtml;
 
     if (field === 'password') {
+        valueEl.innerHTML = '';
         inputHtml = '<input type="password" value="" class="edit-input">';
     } else if (field === 'avatar') {
-        inputHtml = '<input type="file" accept="image/*" class="edit-input">';
+        inputHtml = `
+            <div class="custom-file-upload">
+                <input type="file" accept="image/*" class="edit-input" style="display: none;">
+                <button type="button" class="custom-file-button">Выберите файл</button>
+                <span class="custom-file-text">Файл не выбран</span>
+            </div>
+        `;
     } else {
         inputHtml = `<input type="text" value="${currentValue}" class="edit-input">`;
     }
 
+    // Сначала добавляем HTML
     valueEl.innerHTML = inputHtml;
+
+    // Только для аватара добавляем обработчики
+    if (field === 'avatar') {
+        const fileInput = valueEl.querySelector('.edit-input');
+        const fileButton = valueEl.querySelector('.custom-file-button');
+        const fileText = valueEl.querySelector('.custom-file-text');
+        
+        if (fileButton && fileInput) {
+            fileButton.addEventListener('click', function() {
+                fileInput.click();
+            });
+        }
+        
+        if (fileInput && fileText) {
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    fileText.textContent = this.files[0].name;
+                } else {
+                    fileText.textContent = 'Файл не выбран';
+                }
+            });
+        }
+    }
+    
     button.textContent = 'Cancel';
     button.insertAdjacentHTML('afterend', ' <button class="save-btn" data-field="' + field + '">Save</button>');
 }
-
 function switchToView(field, valueEl, button) {
     const row = button.closest('.input-row');
     const saveBtn = row.querySelector('.save-btn');
@@ -104,12 +135,28 @@ function switchToView(field, valueEl, button) {
     if (input) {
         // 🔥 Берём исходное значение, а не то, что ввёл пользователь
         const originalValue = button._originalValue || '';
-        valueEl.innerHTML = `<span class="value-span">${originalValue}</span>`;
+        
+        // Для аватара создаем новую структуру
+        if (field === 'avatar') {
+            valueEl.innerHTML = '';
+        } else {
+            valueEl.innerHTML = `<span class="value-span">${originalValue}</span>`;
+        }
+        
+        // ❌ УДАЛИТЕ ЭТОТ БЛОК - ОН СОЗДАЕТ НОВЫЙ ЭЛЕМЕНТ ВЫБОРА ФАЙЛА
+        /* 
+        if (input.type === 'file') {
+            const newInput = document.createElement('input');
+            newInput.type = 'file';
+            newInput.accept = 'image/*';
+            newInput.className = 'edit-input';
+            valueEl.appendChild(newInput);
+        }
+        */
     }
 
     button.textContent = 'Change';
 }
-
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('save-btn')) {
         const field = e.target.getAttribute('data-field');
@@ -145,28 +192,39 @@ document.addEventListener('click', function(e) {
             body: formData
         })
         .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                if (field === 'avatar' && data.new_value) {
-                    const img = document.querySelector('.avatar');
-                    if (img) img.src = data.new_value;
-                } else {
-                    // ✅ Обновляем значение на серверное
-                    if ('new_value' in data) {
-                        valueEl.innerHTML = `<span class="value-span">${data.new_value}</span>`;
-                    } else {
-                        console.warn("new_value отсутствует в ответе", data);
-                        valueEl.innerHTML = `<span class="value-span">${value}</span>`; // fallback
-                    }
-                }
-
-                // ✅ Возвращаем кнопку в состояние "Change"
-                changeBtn.textContent = 'Change';
-                e.target.remove(); // удаляем кнопку "Save"
-            } else {
-                alert(data.error || 'Ошибка при сохранении');
+.then(data => {
+    if (data.success) {
+        if (field === 'avatar' && data.new_value) {
+            // Обновляем все элементы аватара
+                document.querySelectorAll('.avatar, .user-avatar, .profile-avatar').forEach(img => {
+                img.src = data.new_value;
+            });
+        } else {
+            // Для других полей
+            let displayValue = data.new_value;
+            if (field === 'password') {
+                displayValue = '****************';
             }
-        })
+            
+            if ('new_value' in data) {
+                valueEl.innerHTML = `<span class="value-span">${displayValue}</span>`;
+            }
+        }
+        
+        // ВСЕГДА возвращаем в режим просмотра
+        changeBtn.textContent = 'Change';
+        e.target.remove();
+        
+        // 🔥 ВАЖНО: Вызываем switchToView для правильного отображения
+        switchToView(field, valueEl, changeBtn);
+    } else {
+        alert(data.error || 'Ошибка при сохранении');
+
+        if (field === 'avatar') {
+            valueEl.innerHTML = '';
+        }
+    }
+})
         .catch(err => {
             console.error(err);
             alert('Произошла ошибка при сохранении');

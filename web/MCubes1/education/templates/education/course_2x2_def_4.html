@@ -13,7 +13,7 @@
       <span class="text">{% trans "At this stage, you need to expand the 4 corners on the top layer to assemble the entire cube. We take the cube in our hands so that the white side is on top." %}</span>
 
       <span class="text">{% trans "We will rotate the angle that is located from the bottom to our right. The moment the corner gets up correctly, the rest of the cube will collapse. Don't worry: as soon as all 4 corners are positioned correctly, the cube will reassemble." %}</span>
-
+      <span class="text">{% trans "В зависимости от разворота уголка, нужно будет использовать одну из трёх формул:"%}</span>
       <div class="flex-row cards-row">
         <div class="card video-wrapper">
           <video src="{% static 'education/videos/4/4_2(RURiUi).webm' %}" class="cube-face"></video>
@@ -38,7 +38,10 @@
 
       <span class="text">{% trans "We need to keep doing formules. After a certain number of bangs, the first two layers will come together, but there will be one unrolled corner. This is an impossible situation, and it only means that this corner unfolded mechanically on the cube. That is, you just need to take it with your fingers and physically turn it so that it stands up correctly." %}</span>
 
-
+      <div class="nav-buttons">
+        <span id="the-cube-is-assembled" class="nav-button back card-button" data-href="{% url 'course_2x2_def_3' %}">{% trans "Back" %}</span>
+        <span id="the-cube-is-assembled" class="nav-button next card-button" data-href="{% url 'course_2x2_def_5' %}">{% trans "Next" %}</span>
+      </div>
     </div>
 </div>
 {% endblock %}

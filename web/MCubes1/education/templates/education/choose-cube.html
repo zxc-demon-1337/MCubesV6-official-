@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
+{% load i18n %}
 
 {% block extra_css%}
 <link rel="stylesheet" href="{% static 'education/css/choose-cube.css' %}">
@@ -9,7 +8,7 @@
 
 {% block content %}
 <div class="section-title-container">
-    <p class="section-title">Which cube will you choose?</p>
+    <p class="section-title">{% trans "Which cube will you choose?" %}</p>
 </div>
 
 <div class="cubes-row-wrapper">
@@ -20,7 +19,7 @@
                 <p>2x2</p>
             </div>
             <div class="card-actions">
-                <span class="card-button" data-href="{% url 'course_2x2_def_introduction' %}"><a class="link-button a-button"  href="">For beginners</a></span>
+                <span class="card-button" data-href="{% url 'course_2x2_def_introduction' %}"><a class="link-button a-button"  href="">{% trans "For beginners" %}</a></span>
                 <span class="card-button"><a class="link-button a-button" href="">CLL</a></span>
             </div>
         </div>
@@ -30,7 +29,7 @@
                 <p>3x3</p>
             </div>
             <div class="card-actions">
-                <span class="card-button">Learn</span>
+                <span class="card-button">{% trans "For beginners" %}</span>
                 <span class="card-button">Practice</span>
             </div>
         </div>
@@ -40,7 +39,7 @@
                 <p>4x4</p>
             </div>
             <div class="card-actions">
-                <span class="card-button">Learn</span>
+                <span class="card-button">{% trans "For beginners" %}</span>
                 <span class="card-button">Practice</span>
             </div>
         </div>
@@ -50,7 +49,7 @@
                 <p>5x5</p>
             </div>
             <div class="card-actions">
-                <span class="card-button">Learn</span>
+                <span class="card-button">{% trans "For beginners" %}</span>
                 <span class="card-button">Practice</span>
             </div>
         </div>

@@ -132,3 +132,24 @@ html{
     border: 2px solid #ff1500;
     transition: border-color 0.3s ease;
   }
+
+
+.nav-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 120px;
+  background-color: rgba(187, 59, 59, 0.9);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.nav-buttons{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  gap: 20px;
+}

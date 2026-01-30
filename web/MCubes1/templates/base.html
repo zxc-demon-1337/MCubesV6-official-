@@ -70,7 +70,11 @@
         {% endif %}
         </a>
         <div class="avatar-container">
-            <img src="{{ user.avatar.url }}" class="avatar-nav"></img>
+            {% if user.avatar %}
+                <img class="avavtar" src="{{ user.avatar.url }}" alt="{{ user.nickname }}">
+            {% else %}
+                <img class="avavtar" src="{% get_media_prefix %}/avatars/default.png" alt="avatar">
+            {% endif %}
         </div>
     </nav>
     <main class="content">
