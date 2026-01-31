@@ -30,10 +30,8 @@ def login_view(request):
                 login(request, user)
                 return redirect('account:profile')
             else:
-                # Аутентификация не удалась
                 messages.error(request, 'Неверный email или пароль')
         else:
-            # Форма не валидна
             messages.error(request, 'Пожалуйста, исправьте ошибки в форме')
     else:
         form = MyAccountLoginForm()
@@ -72,9 +70,7 @@ def update_account(request):
             user.save()
             if field == 'password':
                 from django.contrib.auth import update_session_auth_hash
-                update_session_auth_hash(request, user)  # важно, чтобы юзер не вышел после смены пароля
-
-            # Возвращаем новое значение
+                update_session_auth_hash(request, user)
             new_value = getattr(user, field)
             if field == 'avatar':
                 new_value = user.avatar.url if user.avatar else None

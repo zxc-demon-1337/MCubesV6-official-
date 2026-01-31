@@ -11,8 +11,8 @@
 <div class="main-container">
     <div class="tutorial-content">
       <p class="title">{% trans "Introduction" %}</p>
-
       <span class="text">{% trans 'Для того что бы научиться собирать кубик Рубика 2x2, вам нужно знать язык вращений запомнить 2 формулы: правый "пиф-паф" и левый "пиф-паф"' %}</span>
+      <span class="text">{%trans "Формула - это набор вращений кубика рубика: RUR'U' = поворот правой грани по часовой стрелке, поворот верхней грани по часовой стрелке, поворот правой грани против часовой стрелки, поворот верхней грани против часовой стрелке. Подробнее - "%}<a href="{% url 'course_2x2_def_1' %}">язык вращений</a></a></span>
         <div class="flex-row cards-row">
             <div class="card video-wrapper">
             <video src="{% static 'education/videos/0/0_RURiUi.webm' %}" class="cube-face"></video>

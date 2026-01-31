@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'home',
     'education',
     'account',
+    'rubik_timer',
+    'stats',
 ]
 
 MIDDLEWARE = [

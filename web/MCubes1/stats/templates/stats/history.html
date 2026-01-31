@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}История сборок{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'stats/css/history.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="history-container">
+    <!-- <h1></h1> -->
+    
+    {% if solves %}
+    <div class="stats-summary">
+        <div class="summary-item">
+            <span class="label">Всего сборок:</span>
+            <span class="value">{{ solves.count }}</span>
+        </div>
+    </div>
+    
+    <div class="table-container">
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Тип кубика</th>
+                    <th>Формула</th>
+                    <th>Время сборки</th>
+                    <th>Дата сборки</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for solve in solves %}
+                <tr>
+                    <td class="cube-type">{{ solve.get_cube_type_display }}</td>
+                    <td class="scramble">{{ solve.scramble }}</td>
+                    <td class="solve-time">{{ solve.formatted_time }}</td>
+                    <td class="solve-date">{{ solve.solved_at|date:"d.m.Y H:i:s" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    {% else %}
+    <div class="no-solves">
+        <p>У вас пока нет сборок.</p>
+        <a href="{% url 'rubik_timer:timer' %}" class="btn-start">Начать таймер</a>
+    </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}

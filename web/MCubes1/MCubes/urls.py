@@ -25,7 +25,8 @@ urlpatterns = [
     path('', include('home.urls')),
     path('education/', include('education.urls')), 
     path('account/', include('account.urls')), 
-
+    path('timer/', include('rubik_timer.urls')),
+    path('stats/', include('stats.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

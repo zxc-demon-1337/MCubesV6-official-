@@ -10,6 +10,10 @@
     <title>{% block title %}My Site{% endblock %}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&display=swap">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -34,8 +38,8 @@
                 <a id="link-home" href="{% url 'home' %}" class="nav-link a-button">{% trans "Home" %}</a>
                 <a id="link-education" href="{% url 'education' %}" class="nav-link a-button">{% trans "Education" %}</a>
                 <a id="link-library" href="#" class="nav-link a-button">{% trans "Library" %}</a>
-                <a id="link-timer" href="#" class="nav-link a-button">{% trans "Timer" %}</a>
-                <a id="link-stats" href="#" class="nav-link a-button">{% trans "Stats" %}</a>
+                <a id="link-timer" href="{% url 'rubik_timer:timer' %}" class="nav-link a-button">{% trans "Timer" %}</a>
+                <a id="link-stats" href="{% url 'stats:history' %}" class="nav-link a-button">{% trans "Stats" %}</a>
                 <a id="link-about-us" href="#" class="nav-link a-button">{% trans "About us" %}</a>
             </div>
         </div>

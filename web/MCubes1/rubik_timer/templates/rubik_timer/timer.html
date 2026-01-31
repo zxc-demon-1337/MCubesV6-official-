@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}2x2 Timer{% endblock %}
+
+{% block content %}
+    <h1 class="section-title">{% trans "2x2 timer" %}</h1>
+<div class="timer-page">
+
+    <!-- SCRAMBLE -->
+    <div class="scramble">
+        <div class="scramble-title">Scramble</div>
+        <div id="scramble-text">{{ scramble }}</div>
+    </div>
+
+    <!-- TIMER -->
+    <div id="timer" class="timer idle">
+        <span id="time">0.00</span>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+    <div class="bestof">
+        <div class="bestof-title">AVG of 5</div>
+        <div id="avg">-</div>
+        <div id="times" class="times-list"></div>
+    </div>
+
+
+
+        <!-- REALISTIC 2x2 NET -->
+        <div class="cube">
+            <div class="face" id="U"></div>
+            <div class="face" id="L"></div>
+            <div class="face" id="F"></div>
+            <div class="face" id="R"></div>
+            <div class="face" id="B"></div>
+            <div class="face" id="D"></div>
+        </div>
+
+    </div>
+
+    <div class="hint">
+        Hold SPACE for inspection • Release to start • Click to stop
+    </div>
+
+    <!-- HIDDEN FORM -->
+    <form id="solve-form">
+        {% csrf_token %}
+        <input type="hidden" name="cube_type">
+        <input type="hidden" name="scramble">
+        <input type="hidden" name="solve_time">
+    </form>
+
+
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'rubik_timer/css/timer.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'rubik_timer/js/timer.js' %}"></script>
+{% endblock %}
