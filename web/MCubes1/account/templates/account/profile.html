@@ -16,29 +16,29 @@
           <div class="info-section">
             <div class="input-group">
               <div class="input-row">
-                <span class="label">Nickname</span>
+                <span class="label">{% trans "Nickname" %}</span>
                 {% csrf_token %}
                 <span class="value-span">{{ user.nickname }}</span>
-                <button class="change-btn">Change</button>
+                <button class="change-btn">{% trans "Change" %}</button>
               </div>
               <div class="input-row">
-                <span class="label">E-mail</span>
+                <span class="label">{% trans "E-mail" %}</span>
                 <span class="value-span">{{ user.email }}</span>
-                <button class="change-btn">Change</button>
+                <button class="change-btn">{% trans "Change" %}</button>
               </div>
               <div class="input-row">
-                <span class="label">Password</span>
+                <span class="label">{% trans "Password" %}</span>
                 <span class="value-span">****************</span>
-                <button class="change-btn">Change</button>
+                <button class="change-btn">{% trans "Change" %}</button>
               </div>
               <div class="input-row">
-                <span class="label">Avatar</span>
+                <span class="label">{% trans "Avatar" %}</span>
                 <span class="value-span"></span>
-                <button class="change-btn">Change</button>
+                <button class="change-btn">{% trans "Change" %}</button>
               </div>
                 <form method="post" action="{% url 'account:logout' %}">
                 {% csrf_token %}
-                <button type="submit" class="sign-out-btn">Sign Out</button>
+                <button type="submit" class="sign-out-btn">{% trans "Sign Out" %}</button>
                 </form>
             </div>
           </div>
@@ -142,17 +142,7 @@ function switchToView(field, valueEl, button) {
         } else {
             valueEl.innerHTML = `<span class="value-span">${originalValue}</span>`;
         }
-        
-        // ❌ УДАЛИТЕ ЭТОТ БЛОК - ОН СОЗДАЕТ НОВЫЙ ЭЛЕМЕНТ ВЫБОРА ФАЙЛА
-        /* 
-        if (input.type === 'file') {
-            const newInput = document.createElement('input');
-            newInput.type = 'file';
-            newInput.accept = 'image/*';
-            newInput.className = 'edit-input';
-            valueEl.appendChild(newInput);
-        }
-        */
+    
     }
 
     button.textContent = 'Change';

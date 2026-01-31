@@ -8,66 +8,57 @@
 {% endblock %}
 
 {% block content %}
-<!-- <div style="display: flex; flex-direction: row; height: 100%;padding: 0;">
-    <div style="display: flex; flex-direction: column; width: 100%;height: 100%;">
-        <p style="text-align: center; display: flex; justify-content: center; align-items: center; color: rgb(255,255,255);font-family: Inter, sans-serif;font-size: 36px;line-height: 36px;margin-bottom: 0;">Login</p>
-        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;/*пфз: 50зч;*/gap: 50px;">
-            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 473px;width: 349px;background: rgba(30,0,255,0.5);border-radius: 25px;gap: 50px;">
-                <p style="text-align: center; display: flex; justify-content: center; align-items: center; color: rgb(255,255,255);font-family: Inter, sans-serif;font-size: 36px;line-height: 36px;margin-bottom: 0;">Hi!</p>
-                <div style="display: flex; flex-direction: column; width: fit-content;height: fit-content;gap: 20px;">
-                    <div style="display: flex; justify-content: start; align-items: center; height: 27px;width: 300px;border-radius: 6px;background: #00000000;border: 2px solid #0048FF;color: #ffff;"><span style="width: 300px;height: 27px;background: rgba(32,32,32,0);color: #256FC3;">Nickname</span></div>
-                    <div style="display: flex; justify-content: start; align-items: center; height: 27px;width: 300px;border-radius: 6px;background: #00000000;border: 2px solid #0048FF;color: #ffff;"><span style="width: 300px;height: 27px;background: rgba(32,32,32,0);color: #256FC3;">E-mail</span></div>
-                    <div style="display: flex; justify-content: start; align-items: center; height: 27px;width: 300px;border-radius: 6px;background: #00000000;border: 2px solid #0048FF;color: #ffff;"><span style="width: 300px;height: 27px;background: rgba(32,32,32,0);color: #256FC3;">Password</span></div>
-                    <div style="display: flex; justify-content: start; align-items: center; height: 27px;width: 300px;border-radius: 6px;background: #00000000;border: 2px solid #0048FF;color: #ffff;"><span style="width: 300px;height: 27px;background: rgba(32,32,32,0);color: #256FC3;">Password again</span></div>
-                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; height: 27px;width: 300px;border-radius: 6px;background: #0048FF;border: 2px solid #0048FF;color: #ffff;"><span style="width: auto;height: auto;background: rgba(32,32,32,0);color: #ffff;">Register</span></div>
-                    <div style="height: 27px;width: 300px;border-radius: 6px;background: #00000000;border: 2px solid #0048FF;color: #ffff;"><span style="width: 300px;height: 27px;background: rgba(32,32,32,0);">Already have an account? Log in <a href="#" style="text-decoration: none; color: #00FF6F;">here</a></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="main-container">
     <div class="content">
-        <p class="title">Register</p>
+        <p class="title">{% trans "Register" %}</p>
         <div class="form-wrapper">
             <div class="form-card">
-                <p class="greeting">Hi!</p>
+                <p class="greeting">{% trans "Hi!" %}</p>
                 <div class="input-section">
                     <form method="post" class="form-field">
                         {% csrf_token %}
                         <div class="mb-3">
-                            {{ form.nickname.label_tag }}
+                            <label for="{{ form.nickname.id_for_label }}">{% translate "Nickname" %}</label>
                             {{ form.nickname }}
                         </div>
                         <div class="mb-3">
-                            {{ form.email.label_tag }}
+                            <label for="{{ form.email.id_for_label }}">{% translate "E-mail" %}</label>
                             {{ form.email }}
                         </div>
                         <div class="mb-3">
-                            {{ form.password1.label_tag }}
+                            <label for="{{ form.password1.id_for_label }}">{% translate "Password" %}</label>
                             {{ form.password1 }}
                         </div>
                         <div class="mb-3">
-                            {{ form.password2.label_tag }}
+                            <label for="{{ form.password2.id_for_label }}">{% translate "Password again" %}</label>
                             {{ form.password2 }}
                         </div>
-                        <div class="mb-3">
-                            {{ form.avatar.label_tag }}
+                        <div class="mb-3" >
+                            <label for="{{ form.avatar.id_for_label }}">{% translate "Avatar" %}</label>
                             {{ form.avatar }}
+                            <label for="fileInput" class="custom-file-label" style="color:#fff">Выбрать файл</label>
+                            <span class="file-name"></span>
                         </div>
                         
                         <button type="submit" class="register-btn">
-                            <span>register</span>
+                            <span>{% trans "register" %}</span>
                         </button>
                     </form>
                     <div class="login-link">
-                        <p class="login-label">Already have an account? Log in <a href="{% url 'account:login' %}" class="login-here"> here</a></p>
+                        <p class="login-label">{% trans "Already have an account? Log in" %}<a href="{% url 'account:login' %}" class="login-here">{% trans "here" %}</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    document.querySelector('.custom-file-input').addEventListener('change', function(e) {
+    const fileName = e.target.files[0]?.name || 'Файл не выбран';
+    document.querySelector('.file-name').textContent = fileName;
+});
+</script>
 {% endblock %}
 
 {% block extra_js %}

@@ -15,29 +15,25 @@
       <p class="title">Login</p>
         <div class="form-wrapper">
             <div class="form-card">
-                <p class="greeting">Hi again!</p>
+                <p class="greeting">{% trans "Hi again!" %}</p>
                 <div class="input-section">
                     <form method="post" class="form-field">
                         {% csrf_token %}
                         <div class="mb-3">
-                            {{ form.email.label_tag }}
+                            <label for="{{ form.email.id_for_label }}">{% translate "E-mail" %}</label>
                             {{ form.email }}
                         </div>
                         <div class="mb-3">
-                            {{ form.password.label_tag }}
+                            <label for="{{ form.password.id_for_label }}">{% translate "Password" %}</label>
                             {{ form.password }}
-                        </div>
-                        <div class="mb-3">
-                            {{ form.avatar.label_tag }}
-                            {{ form.avatar }}
                         </div>
                         
                         <button type="submit" class="login-btn">
-                            <span>Log in</span>
+                            <span>{% trans "Log in" %}</span>
                         </button>
                     </form>
                     <div class="register-link">
-                        <p>Dont have an account? Register <a href="{% url 'account:register' %}"  class="register-here"> here</a></p>
+                        <p>{% trans "Dont have an account? Register" %}<a href="{% url 'account:register' %}"  class="register-here">{% trans "here" %}</a></p>
                     </div>
                 </div>
             </div>

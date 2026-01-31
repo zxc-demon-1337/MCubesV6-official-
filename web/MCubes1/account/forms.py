@@ -2,23 +2,22 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from .models import MyAccount
 from django.contrib.auth import authenticate
+from django.utils.translation import gettext_lazy as _
 
 class MyAccountRegisterForm(forms.ModelForm):
     password1 = forms.CharField(
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Введите пароль',
+            # 'placeholder': _('Enter the password'),
             'autocomplete': 'new-password'
         }),
-        label="Пароль"
     )
     password2 = forms.CharField(
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Подтвердите пароль',
+            # 'placeholder': _('Сonfirm the password'),
             'autocomplete': 'new-password'
         }),
-        label="Подтверждение пароля"
     )
 
     class Meta:
@@ -27,16 +26,17 @@ class MyAccountRegisterForm(forms.ModelForm):
         widgets = {
             'email': forms.EmailInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Email',
+                # 'placeholder': _('Email'),
                 'autocomplete': 'email'
             }),
             'nickname': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Никнейм',
+                # 'placeholder': _('Nickname'),
                 'autocomplete': 'nickname'
             }),
             'avatar': forms.ClearableFileInput(attrs={
-                'class': 'form-control-file'
+                'class': 'custom-file-input',
+                'id': 'fileInput'
             })
         }
 
@@ -60,8 +60,8 @@ class MyAccountLoginForm(forms.Form):
 )
     password = forms.CharField(
     widget=forms.PasswordInput(attrs={
-        'autocomplete': 'current-password',  # ← Это важно!
-        'id': 'id_password'  # Сохраните ваш id если нужно
+        'autocomplete': 'current-password',
+        'id': 'id_password'
     })
 )
 
